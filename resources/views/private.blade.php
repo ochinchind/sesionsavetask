@@ -27,7 +27,7 @@
     <p class="lead"> 
         ip : {{$session->ip_address}} 
         date : {{Carbon::createFromTimestamp($session->last_activity)}}
-        <a class="btn btn-lg btn-primary" href="{{ route('logout.by.ip', ['ip' => $session->ip_address]) }}">End Session</a>
+        <a class="btn btn-lg btn-primary" href="{{ route('logout.by.ip', ['id' => $session->id, ,'ip' => $session->ip_address]) }}">End Session</a>
     </p>
     @endforeach
 

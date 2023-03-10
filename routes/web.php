@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //выход из сессии по IP 
-Route::get('/logout-by-ip/{ip}', [App\Http\Controllers\SessionController::class, 'logoutByIp'])->name('logout.by.ip');
+Route::get('/logout-by-ip/{id}/{ip}', [App\Http\Controllers\SessionController::class, 'logoutByIp'])->name('logout.by.ip');
 //Выход из всех сессий кроме текущей
 Route::get('/logout-all/', [App\Http\Controllers\SessionController::class, 'endAllSessionsExceptCurrent'])->name('logout.all');
 //группа всех роутеров которые связаны с пользователем

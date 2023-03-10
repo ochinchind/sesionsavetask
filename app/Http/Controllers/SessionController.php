@@ -34,13 +34,11 @@ class SessionController extends Controller
         return redirect()->back()->with('success', 'All sessions except the current one have been ended.');
     }
 
-    public function logoutByIp($ip)
+    public function logoutByIp($id, $ip)
     {
-        // Получаем идентификатор сеанса для IP-адреса пользователя
-        $sessionId = DB::table('sessions')->where('ip_address', $ip)->value('id');
         // Если для IP-адреса был найден идентификатор сеанса, удаляем данные сеанса
-        if ($sessionId) {
-            Session::getHandler()->destroy($sessionId);
+        if ($id) {
+            Session::getHandler()->destroy($id);
         }
         return redirect()->back()->with('success', 'Session ended for IP: ' . $ip);
     }
